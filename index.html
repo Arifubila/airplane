@@ -1,65 +1,218 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Airplane</title>
+
+    <title>Airplane — Feel The Difference</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <div class="bg">
-      <div class="nav-container">
-        <div class="nav">
-          <div class="logo">
-            <img src="" alt="eror" />
-          </div>
-          <ul class="nav-link" id="nav-link">
-            <li><a href="">SERVICE</a></li>
-            <li><a href="">OUR STAF</a></li>
-            <li><a href="">ABOUT US</a></li>
-            <li><a href="">CARRER</a></li>
-            <li><a href="">CONTACT</a></li>
-          </ul>
-          <div class="src">
-            <button class="search-btn">
-              <img src="img/icon1.png" alt="">
+    <div class="page">
+      ```
+      <!-- Background -->
+      <div class="background">
+        <div class="overlay"></div>
+
+        <!-- Decorative elements -->
+        <div class="blur blur-one"></div>
+        <div class="blur blur-two"></div>
+
+        <!-- Navbar -->
+        <div class="nav-container">
+          <nav class="nav">
+            <a href="#" class="logo">
+              <span class="logo-icon">✈</span>
+              <span>SKY<span>LINE</span></span>
+            </a>
+
+            <ul class="nav-link" id="nav-link">
+              <li><a href="#service">SERVICE</a></li>
+              <li><a href="#staff">OUR STAFF</a></li>
+              <li><a href="#about">ABOUT US</a></li>
+              <li><a href="#career">CAREER</a></li>
+              <li><a href="#contact">CONTACT</a></li>
+            </ul>
+
+            <div class="src">
+              <button class="search-btn" id="search-btn">
+                <img src="img/icon1.png" alt="Search" />
+              </button>
+
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Search destination..."
+              />
+            </div>
+
+            <button class="menu-icon" id="menu-icon" aria-label="Open menu">
+              <span></span>
+              <span></span>
+              <span></span>
             </button>
-            <input type="text" class="search-input" placeholder="search">
-          </div>
-          <div class="menu-icon" id="menu-icon">
-            &#9776; <!-- Simbol hamburger -->
+          </nav>
         </div>
+
+        <!-- Hero -->
+        <header class="hero container">
+          <div class="hero-content">
+            <div class="hero-label">
+              <span></span>
+              EXPERIENCE THE JOURNEY
+            </div>
+
+            <h1 class="tp">
+              FEEL THE
+              <br />
+              DIFFERENCE IN
+            </h1>
+
+            <h1 class="tb">THE <span>SKY</span></h1>
+
+            <p class="hero-description">
+              Discover a new way to travel with comfort, elegance and
+              unforgettable experiences.
+            </p>
+
+            <div class="hero-buttons">
+              <button class="primary-btn">
+                <span>EXPLORE FLIGHTS</span>
+                <span class="arrow">↗</span>
+              </button>
+
+              <button class="play-btn">
+                <span class="play">▶</span>
+                WATCH EXPERIENCE
+              </button>
+            </div>
+          </div>
+
+          <!-- Airplane -->
+          <div class="plane-wrapper">
+            <div class="plane-glow"></div>
+
+            <img src="img/2.png" class="plane" alt="Airplane" />
+          </div>
+
+          <!-- Flight information -->
+          <div class="flight-panel">
+            <div class="flight-header">
+              <div>
+                <span class="small-title">FLIGHT SCHEDULE</span>
+                <h3>Available Routes</h3>
+              </div>
+
+              <span class="status">
+                <span></span>
+                LIVE
+              </span>
+            </div>
+
+            <div class="routes">
+              <div class="route">
+                <div class="time">
+                  <strong>12:00</strong>
+                  <span>GMT +7</span>
+                </div>
+
+                <div class="location">
+                  <span class="code">DPS</span>
+                  <div>
+                    <b>Bali</b>
+                    <small>Indonesia</small>
+                  </div>
+                </div>
+
+                <div class="route-line">
+                  <span></span>
+                  <i>✈</i>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="route">
+                <div class="time">
+                  <strong>20:00</strong>
+                  <span>GMT +7</span>
+                </div>
+
+                <div class="location">
+                  <span class="code">CGK</span>
+                  <div>
+                    <b>Jakarta</b>
+                    <small>Indonesia</small>
+                  </div>
+                </div>
+
+                <div class="route-line">
+                  <span></span>
+                  <i>✈</i>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="route">
+                <div class="time">
+                  <strong>23:00</strong>
+                  <span>GMT +7</span>
+                </div>
+
+                <div class="location">
+                  <span class="code">TSY</span>
+                  <div>
+                    <b>Tasikmalaya</b>
+                    <small>Indonesia</small>
+                  </div>
+                </div>
+
+                <div class="route-line">
+                  <span></span>
+                  <i>✈</i>
+                  <span></span>
+                </div>
+              </div>
+
+              <button class="fly-btn">
+                <span>FLY NOW</span>
+                <span class="fly-arrow">→</span>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <!-- Bottom info -->
+        <div class="bottom-info">
+          <div>
+            <span>01</span>
+            <p>Premium<br />Experience</p>
+          </div>
+
+          <div>
+            <span>02</span>
+            <p>Worldwide<br />Destination</p>
+          </div>
+
+          <div>
+            <span>03</span>
+            <p>Safe &<br />Comfortable</p>
+          </div>
         </div>
       </div>
-
-      <header class="container">
-        <div class="sec1">
-          <h1 class="tp">
-            FEEL THE <br />
-            DIFFERENCE IN <br>
-          </h1>
-          <h1 class="tb">THE SKY</h1>
-          <img src="img/2.png" alt="eror" />
-          
-        </div>
-        <div class="sec2">
-          <div class="rute1">
-            <p>12.00</p>
-            <h4><b>Bali</b> Indonesia</h4>
-          </div>
-          <div class="rute2">
-            <p>20.00</p>
-            <h4><b>Jakarta</b> Indonesia</h4>
-          </div>
-          <div class="rute3">
-            <p>23.00</p>
-            <h4><b>Tasikmalaya</b> Indonesia</h4>
-          </div>
-          <button>FLY NOW</button>
-        </div>
-        </div>
-      </header>
+      ```
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

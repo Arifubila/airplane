@@ -1,226 +1,1257 @@
+/* =========================================================
+RESET
+========================================================= */
+
 * {
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  }
+
+html {
+scroll-behavior: smooth;
 }
 
 body {
-  font-family: Arial, sans-serif;
+font-family: "DM Sans", sans-serif;
+background: #07141b;
+color: #ffffff;
+overflow-x: hidden;
 }
 
-.bg {
-  background-image: url(img/1.jpg);
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 100vh;
+button,
+input {
+font-family: inherit;
 }
 
-.src {
-  display: flex;
-  align-items: center;
+button {
+border: none;
+cursor: pointer;
 }
 
-.search-input {
-  background-color: transparent;
-  width: 50px;
-  font-size: 2.5vh;
-  border: 0px solid transparent;
-  outline: none;
-  color: #164174;
+/* =========================================================
+PAGE
+========================================================= */
+
+.page {
+min-height: 100vh;
 }
 
-.search-input::placeholder {
-  color: #164174;
+.background {
+position: relative;
+min-height: 100vh;
+overflow: hidden;
+
+background:
+linear-gradient(
+110deg,
+rgba(4, 16, 23, 0.96) 0%,
+rgba(8, 28, 38, 0.72) 45%,
+rgba(8, 24, 32, 0.48) 100%
+),
+url("img/bg.jpeg");
+
+background-size: cover;
+background-position: center;
 }
 
-.search-btn {
-  width: 50px;
-  background-color: transparent;
-  border: 0px solid transparent;
+/* =========================================================
+OVERLAY
+========================================================= */
+
+.overlay {
+position: absolute;
+inset: 0;
+
+background:
+radial-gradient(
+circle at 75% 45%,
+rgba(93, 194, 214, 0.13),
+transparent 30%
+),
+linear-gradient(
+to bottom,
+rgba(0, 0, 0, 0.12),
+rgba(0, 0, 0, 0.38)
+);
+
+pointer-events: none;
 }
 
-.search-btn:hover {
-  transform: scale(1.1);
+/* =========================================================
+DECORATIVE BLUR
+========================================================= */
+
+.blur {
+position: absolute;
+border-radius: 50%;
+filter: blur(80px);
+pointer-events: none;
 }
 
-.search-btn:active {
-  transform: scale(0.9);
+.blur-one {
+width: 300px;
+height: 300px;
+background: rgba(80, 190, 210, 0.08);
+top: 20%;
+right: 10%;
 }
 
-.search-btn img {
-  width: 30%;
+.blur-two {
+width: 240px;
+height: 240px;
+background: rgba(255, 255, 255, 0.05);
+bottom: 5%;
+left: 10%;
 }
 
-.menu-icon {
-  display: none;
-  font-size: 1.5em;
-  color: white;
-  cursor: pointer;
+/* =========================================================
+CONTAINER
+========================================================= */
+
+.container {
+width: min(1240px, calc(100% - 80px));
+margin: auto;
 }
+
+/* =========================================================
+NAVBAR
+========================================================= */
 
 .nav-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 35px;
+position: relative;
+z-index: 20;
+
+width: min(1240px, calc(100% - 80px));
+margin: 25px auto 0;
 }
 
 .nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  color: #164174;
-  font-size: 2.6vh;
+height: 72px;
+
+padding: 0 22px 0 28px;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+border: 1px solid rgba(255, 255, 255, 0.13);
+
+background: rgba(255, 255, 255, 0.08);
+backdrop-filter: blur(22px);
+-webkit-backdrop-filter: blur(22px);
+
+border-radius: 18px;
+
+box-shadow:
+0 20px 60px rgba(0, 0, 0, 0.15);
+
+animation: navDown 0.8s ease forwards;
 }
 
+/* =========================================================
+LOGO
+========================================================= */
+
+.logo {
+display: flex;
+align-items: center;
+gap: 9px;
+
+color: #ffffff;
+text-decoration: none;
+
+font-family: "Plus Jakarta Sans", sans-serif;
+font-size: 17px;
+font-weight: 800;
+letter-spacing: 1px;
+}
+
+.logo span span {
+opacity: 0.55;
+}
+
+.logo-icon {
+width: 34px;
+height: 34px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 10px;
+
+background: rgba(255, 255, 255, 0.13);
+
+font-size: 17px;
+
+transform: rotate(-12deg);
+
+transition: 0.35s ease;
+}
+
+.logo:hover .logo-icon {
+transform: rotate(0deg) translateY(-2px);
+}
+
+/* =========================================================
+NAV LINKS
+========================================================= */
+
 .nav-link {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  gap: 3rem;
+list-style: none;
+
+display: flex;
+align-items: center;
+gap: 31px;
+
+margin-left: auto;
+margin-right: 35px;
 }
 
 .nav-link a {
-  text-decoration: none;
-  color: #164174;
-  font-weight: bold;
+position: relative;
+
+color: rgba(255, 255, 255, 0.72);
+
+text-decoration: none;
+
+font-size: 11px;
+font-weight: 700;
+
+letter-spacing: 0.9px;
+
+transition: color 0.3s ease;
+}
+
+.nav-link a::after {
+content: "";
+
+position: absolute;
+left: 0;
+bottom: -7px;
+
+width: 0;
+height: 1px;
+
+background: #ffffff;
+
+transition: width 0.3s ease;
 }
 
 .nav-link a:hover {
-  color: #398aee;
+color: #ffffff;
 }
+
+.nav-link a:hover::after {
+width: 100%;
+}
+
+/* =========================================================
+SEARCH
+========================================================= */
 
 .src {
-  display: flex;
+width: 170px;
+height: 40px;
+
+display: flex;
+align-items: center;
+
+padding: 0 12px;
+
+border: 1px solid rgba(255, 255, 255, 0.12);
+
+background: rgba(255, 255, 255, 0.07);
+
+border-radius: 11px;
+
+transition: 0.3s ease;
 }
 
-.sec1 {
-  position: relative;
-  width: 100%;
-  height: 100vh; /* Sesuaikan dengan tinggi viewport */
-  display: flex;
-  justify-content: center; /* Mencentang horizontal */
-  align-items: center; /* Mencentang vertikal */
-  overflow: hidden;
+.src:focus-within {
+width: 195px;
+border-color: rgba(255, 255, 255, 0.3);
+background: rgba(255, 255, 255, 0.1);
 }
 
-.sec1 .tp {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Memastikan teks berada di tengah */
-  font-size: 6vw; /* Ukuran teks besar */
-  color: rgba(255, 255, 255, 0.8); /* Warna putih semi transparan */
-  text-align: center;
-  letter-spacing: 0.1em; /* Spasi antar huruf */
-  font-weight: bold;
-  white-space: nowrap;
+.search-btn {
+width: 25px;
+height: 25px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+background: transparent;
+}
+
+.search-btn img {
+width: 14px;
+height: 14px;
+
+object-fit: contain;
+
+filter: brightness(0) invert(1);
+
+opacity: 0.7;
+}
+
+.search-input {
+width: 100%;
+
+margin-left: 8px;
+
+border: none;
+outline: none;
+
+color: #ffffff;
+
+background: transparent;
+
+font-size: 11px;
+}
+
+.search-input::placeholder {
+color: rgba(255, 255, 255, 0.5);
+}
+
+/* =========================================================
+MOBILE MENU
+========================================================= */
+
+.menu-icon {
+display: none;
+
+width: 42px;
+height: 42px;
+
+border-radius: 10px;
+
+background: rgba(255, 255, 255, 0.08);
+
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 5px;
+}
+
+.menu-icon span {
+width: 19px;
+height: 2px;
+
+border-radius: 5px;
+
+background: #ffffff;
+
+transition: 0.3s ease;
+}
+
+/* =========================================================
+HERO
+========================================================= */
+
+.hero {
+position: relative;
+
+min-height: calc(100vh - 120px);
+
+display: flex;
+align-items: center;
+}
+
+/* =========================================================
+HERO CONTENT
+========================================================= */
+
+.hero-content {
+position: relative;
+z-index: 5;
+
+padding-top: 20px;
+
+animation: heroUp 1s ease 0.2s both;
+}
+
+.hero-label {
+display: flex;
+align-items: center;
+gap: 10px;
+
+margin-bottom: 22px;
+
+color: rgba(255, 255, 255, 0.6);
+
+font-size: 10px;
+font-weight: 700;
+
+letter-spacing: 2px;
+}
+
+.hero-label span {
+width: 30px;
+height: 1px;
+
+background: rgba(255, 255, 255, 0.6);
+}
+
+.tp,
+.tb {
+font-family: "Plus Jakarta Sans", sans-serif;
+
+line-height: 0.91;
+
+letter-spacing: -4px;
+}
+
+.tp {
+font-size: clamp(48px, 6vw, 82px);
+
+font-weight: 800;
+
+color: #ffffff;
 }
 
 .tb {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Memastikan teks berada di tengah */
-  font-size: 6vw; /* Ukuran teks besar */
-  color: rgba(255, 255, 255, 0.8); /* Warna putih semi transparan */
-  text-align: center;
-  letter-spacing: 0.1em; /* Spasi antar huruf */
-  font-weight: bold;
-  white-space: nowrap;
-  z-index: 2;
+margin-top: 5px;
+
+font-size: clamp(48px, 6vw, 82px);
+
+font-weight: 800;
+
+color: rgba(255, 255, 255, 0.35);
 }
 
-.sec1 img {
-  top: -70px;
-  width: 50%;
-  height: auto;
-  position: relative;
-  z-index: 1;
+.tb span {
+color: #ffffff;
 }
 
-.sec2 {
-  max-width: 900px;
-  background-color: #164174;
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  justify-content: space-between;
-  bottom: 200px;
-  margin: 1px auto;
-  padding: 18px;
-  align-items: center;
-  color: white;
-  font-size: 2.4vh;
-  gap: 1rem;
-}
-.rute1:hover {
-  color: #f0b860;
-  cursor: pointer;
-}
-.rute1:active {
-  transform: scale(0.9);
-}
-.rute1 p {
-  font-size: 2vh;
+.hero-description {
+width: 370px;
+
+margin-top: 27px;
+
+color: rgba(255, 255, 255, 0.6);
+
+font-size: 13px;
+
+line-height: 1.7;
 }
 
-.rute2:hover {
-  color: #f0b860;
-  cursor: pointer;
-}
-.rute2:active {
-  transform: scale(0.9);
-}
-.rute2 p {
-  font-size: 2vh;
+/* =========================================================
+HERO BUTTONS
+========================================================= */
+
+.hero-buttons {
+display: flex;
+align-items: center;
+gap: 20px;
+
+margin-top: 32px;
 }
 
-.rute3:hover {
-  color: #f0b860;
-  cursor: pointer;
-}
-.rute3:active {
-  transform: scale(0.9);
-}
-.rute3 p {
-  font-size: 2vh;
+.primary-btn {
+height: 48px;
+
+padding: 0 7px 0 20px;
+
+display: flex;
+align-items: center;
+gap: 17px;
+
+border-radius: 12px;
+
+background: #ffffff;
+color: #10232c;
+
+font-size: 10px;
+font-weight: 800;
+
+letter-spacing: 0.7px;
+
+transition: 0.35s ease;
 }
 
-.sec2 button {
-  padding: 10px 25px;
-  background-color: #f0b860;
-  font-weight: bold;
-  color: #164174;
-  border: 1.6px solid black;
+.primary-btn .arrow {
+width: 34px;
+height: 34px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 9px;
+
+background: #10232c;
+
+color: #ffffff;
+
+font-size: 15px;
+
+transition: 0.35s ease;
 }
 
-.sec2 button:hover {
-  background-color: white;
-  transform: scale(1.1);
-  cursor: pointer;
+.primary-btn:hover {
+transform: translateY(-3px);
+
+box-shadow:
+0 12px 30px rgba(0, 0, 0, 0.25);
 }
+
+.primary-btn:hover .arrow {
+transform: rotate(45deg);
+}
+
+.play-btn {
+display: flex;
+align-items: center;
+gap: 9px;
+
+background: transparent;
+
+color: rgba(255, 255, 255, 0.75);
+
+font-size: 10px;
+font-weight: 700;
+
+letter-spacing: 0.6px;
+}
+
+.play {
+width: 34px;
+height: 34px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border: 1px solid rgba(255, 255, 255, 0.25);
+
+border-radius: 50%;
+
+font-size: 9px;
+
+padding-left: 2px;
+
+transition: 0.3s ease;
+}
+
+.play-btn:hover .play {
+background: rgba(255, 255, 255, 0.1);
+transform: scale(1.1);
+}
+
+/* =========================================================
+AIRPLANE
+========================================================= */
+
+.plane-wrapper {
+position: absolute;
+
+width: 650px;
+height: 450px;
+
+right: -35px;
+top: 7%;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+pointer-events: none;
+
+animation: planeEnter 1.5s cubic-bezier(.16,.8,.3,1) forwards;
+}
+
+.plane-glow {
+position: absolute;
+
+width: 360px;
+height: 180px;
+
+border-radius: 50%;
+
+background: rgba(130, 210, 225, 0.12);
+
+filter: blur(60px);
+
+transform: rotate(-20deg);
+}
+
+.plane {
+position: relative;
+z-index: 2;
+
+width: 600px;
+max-width: 100%;
+
+object-fit: contain;
+
+transform: rotate(-8deg);
+
+filter:
+drop-shadow(0 35px 35px rgba(0, 0, 0, 0.35));
+
+animation: planeFloat 5s ease-in-out infinite;
+}
+
+/* =========================================================
+FLIGHT PANEL
+========================================================= */
+
+.flight-panel {
+position: absolute;
+
+z-index: 10;
+
+right: 0;
+bottom: 45px;
+
+width: 650px;
+
+padding: 20px 22px;
+
+border-radius: 18px;
+
+background: rgba(8, 23, 31, 0.58);
+
+border: 1px solid rgba(255, 255, 255, 0.12);
+
+backdrop-filter: blur(25px);
+-webkit-backdrop-filter: blur(25px);
+
+box-shadow:
+0 25px 70px rgba(0, 0, 0, 0.28);
+
+animation: panelUp 1s ease 0.7s both;
+}
+
+/* =========================================================
+FLIGHT HEADER
+========================================================= */
+
+.flight-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+margin-bottom: 18px;
+}
+
+.small-title {
+display: block;
+
+margin-bottom: 4px;
+
+color: rgba(255, 255, 255, 0.42);
+
+font-size: 8px;
+font-weight: 700;
+
+letter-spacing: 1.5px;
+}
+
+.flight-header h3 {
+font-family: "Plus Jakarta Sans", sans-serif;
+
+font-size: 14px;
+font-weight: 700;
+}
+
+.status {
+display: flex;
+align-items: center;
+gap: 7px;
+
+color: rgba(255, 255, 255, 0.55);
+
+font-size: 8px;
+font-weight: 700;
+
+letter-spacing: 1px;
+}
+
+.status span {
+width: 6px;
+height: 6px;
+
+border-radius: 50%;
+
+background: #8ce2c0;
+
+box-shadow: 0 0 10px rgba(140, 226, 192, 0.8);
+
+animation: pulse 2s infinite;
+}
+
+/* =========================================================
+ROUTES
+========================================================= */
+
+.routes {
+display: grid;
+
+grid-template-columns:
+1fr 1fr 1fr auto;
+
+gap: 12px;
+
+align-items: center;
+}
+
+.route {
+min-width: 0;
+
+padding-right: 14px;
+
+border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.time {
+display: flex;
+align-items: baseline;
+gap: 5px;
+
+margin-bottom: 8px;
+}
+
+.time strong {
+font-family: "Plus Jakarta Sans", sans-serif;
+
+font-size: 15px;
+}
+
+.time span {
+color: rgba(255, 255, 255, 0.35);
+
+font-size: 7px;
+}
+
+.location {
+display: flex;
+align-items: center;
+gap: 9px;
+}
+
+.code {
+width: 28px;
+height: 28px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 7px;
+
+background: rgba(255, 255, 255, 0.08);
+
+color: rgba(255, 255, 255, 0.65);
+
+font-size: 7px;
+font-weight: 800;
+}
+
+.location b {
+display: block;
+
+font-size: 9px;
+}
+
+.location small {
+display: block;
+
+margin-top: 2px;
+
+color: rgba(255, 255, 255, 0.4);
+
+font-size: 7px;
+}
+
+/* =========================================================
+ROUTE LINE
+========================================================= */
+
+.route-line {
+display: flex;
+align-items: center;
+
+gap: 5px;
+
+margin-top: 10px;
+}
+
+.route-line span {
+flex: 1;
+
+height: 1px;
+
+background: rgba(255, 255, 255, 0.12);
+}
+
+.route-line i {
+color: rgba(255, 255, 255, 0.4);
+
+font-size: 8px;
+
+font-style: normal;
+
+transform: rotate(45deg);
+}
+
+/* =========================================================
+FLY BUTTON
+========================================================= */
+
+.fly-btn {
+height: 52px;
+
+padding: 0 12px 0 17px;
+
+display: flex;
+align-items: center;
+gap: 12px;
+
+border-radius: 12px;
+
+background: #ffffff;
+
+color: #10232c;
+
+font-size: 9px;
+font-weight: 800;
+
+letter-spacing: 0.6px;
+
+transition: 0.35s ease;
+}
+
+.fly-arrow {
+width: 27px;
+height: 27px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 8px;
+
+background: #10232c;
+
+color: #ffffff;
+
+transition: 0.35s ease;
+}
+
+.fly-btn:hover {
+transform: translateY(-3px);
+
+box-shadow:
+0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.fly-btn:hover .fly-arrow {
+transform: translateX(4px);
+}
+
+/* =========================================================
+BOTTOM INFO
+========================================================= */
+
+.bottom-info {
+position: absolute;
+
+z-index: 5;
+
+left: 40px;
+bottom: 35px;
+
+display: flex;
+gap: 35px;
+}
+
+.bottom-info div {
+display: flex;
+align-items: flex-start;
+gap: 9px;
+
+opacity: 0.55;
+}
+
+.bottom-info span {
+font-family: "Plus Jakarta Sans", sans-serif;
+
+font-size: 9px;
+
+color: rgba(255, 255, 255, 0.5);
+}
+
+.bottom-info p {
+font-size: 8px;
+
+line-height: 1.5;
+
+color: rgba(255, 255, 255, 0.7);
+}
+
+/* =========================================================
+ANIMATIONS
+========================================================= */
+
+@keyframes navDown {
+
+from {
+opacity: 0;
+transform: translateY(-20px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+}
+
+}
+
+@keyframes heroUp {
+
+from {
+opacity: 0;
+transform: translateY(35px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+}
+
+}
+
+@keyframes planeEnter {
+
+from {
+opacity: 0;
+transform: translateX(120px) scale(0.9);
+}
+
+to {
+opacity: 1;
+transform: translateX(0) scale(1);
+}
+
+}
+
+@keyframes planeFloat {
+
+0%,
+100% {
+transform: translateY(0) rotate(-8deg);
+}
+
+50% {
+transform: translateY(-14px) rotate(-7deg);
+}
+
+}
+
+@keyframes panelUp {
+
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+}
+
+}
+
+@keyframes pulse {
+
+0% {
+transform: scale(1);
+opacity: 1;
+}
+
+50% {
+transform: scale(1.5);
+opacity: 0.5;
+}
+
+100% {
+transform: scale(1);
+opacity: 1;
+}
+
+}
+
+/* =========================================================
+RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+.container,
+.nav-container {
+width: min(92%, 900px);
+}
+
+.nav-link {
+gap: 18px;
+margin-right: 20px;
+}
+
+.nav-link a {
+font-size: 9px;
+}
+
+.src {
+width: 135px;
+}
+
+.plane-wrapper {
+width: 520px;
+right: -70px;
+}
+
+.plane {
+width: 500px;
+}
+
+.flight-panel {
+width: 590px;
+}
+
+}
+
+/* =========================================================
+RESPONSIVE — MOBILE
+========================================================= */
 
 @media (max-width: 768px) {
-  @media (max-width: 768px) {
-    .nav-link {
-      display: none; /* Sembunyikan menu links pada layar kecil */
-      flex-direction: column; /* Ubah arah menjadi kolom */
-      position: absolute; /* Posisi absolut untuk menu dropdown */
-      background-color: white; /* Latar belakang untuk menu */
-      width: 70%; /* Lebar penuh */
-      top: 60px; /* Jarak dari navbar */
-    }
 
-    .nav-link.active {
-      display: flex; /* Tampilkan menu saat diaktifkan */
-    }
+.background {
+min-height: 100vh;
 
-    .menu-icon {
-      display: block; /* Tampilkan icon hamburger */
-    }
-  }
+```
+background-position: 60% center;
+```
+
+}
+
+.container,
+.nav-container {
+width: calc(100% - 32px);
+}
+
+.nav-container {
+margin-top: 16px;
+}
+
+.nav {
+height: 64px;
+
+```
+padding: 0 14px 0 18px;
+
+border-radius: 15px;
+```
+
+}
+
+.nav-link,
+.src {
+display: none;
+}
+
+.menu-icon {
+display: flex;
+}
+
+.hero {
+min-height: auto;
+
+```
+padding-top: 90px;
+padding-bottom: 30px;
+
+display: block;
+```
+
+}
+
+.hero-content {
+padding-top: 0;
+}
+
+.hero-label {
+margin-bottom: 18px;
+
+```
+font-size: 8px;
+```
+
+}
+
+.tp,
+.tb {
+font-size: clamp(43px, 13vw, 65px);
+
+```
+letter-spacing: -3px;
+```
+
+}
+
+.hero-description {
+width: 90%;
+max-width: 350px;
+
+```
+font-size: 11px;
+
+margin-top: 20px;
+```
+
+}
+
+.hero-buttons {
+margin-top: 24px;
+}
+
+.plane-wrapper {
+position: relative;
+
+```
+width: 100%;
+height: 250px;
+
+top: auto;
+right: auto;
+
+margin-top: 20px;
+```
+
+}
+
+.plane {
+width: 100%;
+
+```
+max-width: 430px;
+```
+
+}
+
+.flight-panel {
+position: relative;
+
+```
+right: auto;
+bottom: auto;
+
+width: 100%;
+
+margin-top: 5px;
+
+padding: 17px;
+
+border-radius: 15px;
+```
+
+}
+
+.routes {
+grid-template-columns: 1fr;
+
+```
+gap: 0;
+```
+
+}
+
+.route {
+padding: 14px 0;
+
+```
+border-right: none;
+
+border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+```
+
+}
+
+.route:last-of-type {
+border-bottom: none;
+}
+
+.fly-btn {
+width: 100%;
+
+```
+margin-top: 12px;
+
+justify-content: space-between;
+```
+
+}
+
+.bottom-info {
+display: none;
+}
+
+}
+
+/* =========================================================
+SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+.logo {
+font-size: 14px;
+}
+
+.logo-icon {
+width: 30px;
+height: 30px;
+}
+
+.hero {
+padding-top: 75px;
+}
+
+.tp,
+.tb {
+font-size: 43px;
+
+```
+letter-spacing: -2px;
+```
+
+}
+
+.hero-buttons {
+gap: 13px;
+}
+
+.primary-btn {
+height: 44px;
+
+```
+padding-left: 15px;
+
+font-size: 8px;
+```
+
+}
+
+.play-btn {
+font-size: 8px;
+}
+
+.plane-wrapper {
+height: 210px;
+}
+
 }
